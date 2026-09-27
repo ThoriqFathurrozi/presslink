@@ -1,0 +1,14 @@
+{
+  "name": "pressora",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reusable userscript page adapter framework.",
+  "scripts": {
+    "test": "node scripts/test.js",
+    "build": "node scripts/build.js",
+    "dev": "node scripts/build.js --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.9"
+  }
+}
