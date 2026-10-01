@@ -15,19 +15,19 @@ npm ci
 npm run build
 ```
 
-In your userscript manager, create a new script, replace its contents with the complete contents of [`dist/page-breakdown.user.js`](dist/page-breakdown.user.js), save, and enable it. Reload a supported site and look for a **Pressora** button on an eligible card or article page.
+In your userscript manager, create a new script, replace its contents with the complete contents of [`pressora.user.js`](pressora.user.js), save, and enable it. Reload a supported site and look for a **Pressora** button on an eligible card or article page.
 
-**Install the file in `dist/`.** The root [`pressora.user.js`](pressora.user.js) is only the metadata template and does not contain the application.
+**Install the file in.** The root [`pressora.user.js`](pressora.user.js) is only the metadata template and does not contain the application.
 
 ## Supported sites
 
-| Site | Adapter | Current behavior |
-| --- | --- | --- |
-| Medium | `medium` | Member-only cards; eligible article pages and recommendation cards |
-| The New York Times | `nyt` | Recognized article cards and detail pages; excludes marked always-free homepage packages |
-| The Washington Post | `wapos` | Recognized article cards and detail pages |
-| Bloomberg | `bloomberg` | Recognized article cards and detail pages |
-| Reuters | `reuters` | Recognized article cards and detail pages |
+| Site                | Adapter     | Current behavior                                                                         |
+| ------------------- | ----------- | ---------------------------------------------------------------------------------------- |
+| Medium              | `medium`    | Member-only cards; eligible article pages and recommendation cards                       |
+| The New York Times  | `nyt`       | Recognized article cards and detail pages; excludes marked always-free homepage packages |
+| The Washington Post | `wapos`     | Recognized article cards and detail pages                                                |
+| Bloomberg           | `bloomberg` | Recognized article cards and detail pages                                                |
+| Reuters             | `reuters`   | Recognized article cards and detail pages                                                |
 
 Support here means the site has both a registered adapter and install metadata. Selectors and URL rules are heuristics, and automated tests use fixtures rather than live publisher pages. See the [site reference](docs/adapters.md) for exact rules and limitations.
 
@@ -35,11 +35,11 @@ The Economist adapter is an unregistered draft. The example adapter is a develop
 
 ## Actions
 
-| Menu item | Behavior |
-| --- | --- |
-| Copy URL | Copies the selected article URL to the clipboard, with a DOM-based fallback |
-| Open URL | Opens the selected article URL in a new tab |
-| Open FREE | Opens `https://freedium-mirror.cfd/` followed by the selected article URL |
+| Menu item | Behavior                                                                    |
+| --------- | --------------------------------------------------------------------------- |
+| Copy URL  | Copies the selected article URL to the clipboard, with a DOM-based fallback |
+| Open URL  | Opens the selected article URL in a new tab                                 |
+| Open FREE | Opens `https://freedium-mirror.cfd/` followed by the selected article URL   |
 
 “Open FREE” uses the same destination for every supported site. It is an external link action; Pressora does not fetch article content or guarantee the external service can read a given article. URL fragments are removed by the active adapters, while query parameters are preserved.
 
