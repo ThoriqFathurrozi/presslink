@@ -3,15 +3,9 @@ const path = require('node:path');
 const esbuild = require('esbuild');
 
 const projectRoot = path.resolve(__dirname, '..');
-const metadataPath = path.join(projectRoot, 'pressora.user.js');
+const metadataPath = path.join(projectRoot, 'pressora-meta.user.js');
 const outputPath = path.join(
     projectRoot,
-    'dist',
-    'page-breakdown.user.js'
-);
-const legacyOutputPath = path.join(
-    projectRoot,
-    'dist',
     'pressora.user.js'
 );
 
@@ -51,7 +45,6 @@ async function createBuildOptions() {
 
 async function build() {
     await fs.mkdir(path.dirname(outputPath), { recursive: true });
-    await fs.rm(legacyOutputPath, { force: true });
     const options = await createBuildOptions();
 
     if (process.argv.includes('--watch')) {
