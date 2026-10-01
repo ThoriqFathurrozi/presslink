@@ -6,7 +6,7 @@
 
 1. Have a userscript manager installed and enabled in your browser, with permission to run on the supported site.
 2. In a terminal at the project root, run `npm ci` and then `npm run build`.
-3. Open `dist/page-breakdown.user.js` in a text editor. Copy the entire file, including its userscript metadata block.
+3. Open `pressora.user.js` in a text editor. Copy the entire file, including its userscript metadata block.
 4. Create a new script in the userscript manager, replace its contents with the copied file, and save it. Enable the script.
 5. Reload a supported HTTPS page. A button appears only when the adapter finds an eligible article and a place to insert it.
 
