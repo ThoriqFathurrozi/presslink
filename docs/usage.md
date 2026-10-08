@@ -4,6 +4,13 @@
 
 ## Installation
 
+1. Install and enable a userscript manager browser extension, such as **Violentmonkey** or **Tampermonkey**, with permission to run on the supported site.
+2. Open the Pressora listing on [OpenUserJS](https://openuserjs.org/scripts/frrzyriq/pressora), or [search for Pressora on Greasy Fork](https://greasyfork.org/en/scripts?q=Pressora).
+3. Click **Install** (OpenUserJS) or **Install this script** (Greasy Fork) on the script's page, then confirm the installation in your userscript manager.
+4. Reload a supported HTTPS page. A button appears only when the adapter finds an eligible article and a place to insert it.
+
+**Build and install locally (optional)**
+
 1. Have a userscript manager installed and enabled in your browser, with permission to run on the supported site.
 2. In a terminal at the project root, run `npm ci` and then `npm run build`.
 3. Open `pressora.user.js` in a text editor. Copy the entire file, including its userscript metadata block.

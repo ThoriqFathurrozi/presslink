@@ -6,7 +6,13 @@ The implementation uses plain JavaScript, browser DOM APIs, and site adapters. e
 
 ## Quick start
 
-You need Node.js and npm to build, and a browser with a userscript manager to install the result. The esbuild dependency declares Node.js 18 or newer; the project does not declare its own minimum Node version. The documented checks were run with Node.js 26.8.1 and npm 11.19.0.
+1. Install and enable a userscript manager browser extension, such as **Violentmonkey**, **Tampermonkey**, or another userscript manager.
+2. Open the Pressora listing on [OpenUserJS](https://openuserjs.org/scripts/frrzyriq/pressora), or [search for Pressora on Greasy Fork](https://greasyfork.org/en/scripts?q=Pressora). On the script's page, click **Install** (OpenUserJS) or **Install this script** (Greasy Fork), then confirm the installation in your userscript manager.
+3. Reload a supported site and look for a **Pressora** button on an eligible card or article page.
+
+**Build and install locally (optional)**
+
+You need Node.js and npm only if you want to build the script locally. The esbuild dependency declares Node.js 18 or newer; the project does not declare its own minimum Node version. The documented checks were run with Node.js 26.8.1 and npm 11.19.0.
 
 From the project directory:
 
@@ -17,7 +23,7 @@ npm run build
 
 In your userscript manager, create a new script, replace its contents with the complete contents of [`pressora.user.js`](pressora.user.js), save, and enable it. Reload a supported site and look for a **Pressora** button on an eligible card or article page.
 
-**Install the file in.** The root [`pressora.user.js`](pressora.user.js) is only the metadata template and does not contain the application.
+Install the generated [`pressora.user.js`](pressora.user.js). [`pressora-meta.user.js`](pressora-meta.user.js) is only the metadata template and does not contain the application.
 
 ## Supported sites
 
