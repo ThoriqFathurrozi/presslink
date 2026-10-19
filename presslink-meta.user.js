@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Pressora
+// @name         Presslink
 // @namespace    https://github.com/ThoriqFathurrozi/
 // @version      1.2
 // @description  Improves the reading experience on supported news and publishing sites.
@@ -13,9 +13,9 @@
 // @grant        none
 // @run-at       document-end
 // @noframes
-// @homepageURL  https://github.com/ThoriqFathurrozi/pressora
-// @updateURL    https://openuserjs.org/meta/frrzyriq/pressora.meta.js
-// @downloadURL  https://openuserjs.org/src/scripts/frrzyriq/pressora.user.js
+// @homepageURL  https://github.com/ThoriqFathurrozi/presslink
+// @updateURL    https://openuserjs.org/meta/frrzyriq/presslink.meta.js
+// @downloadURL  https://openuserjs.org/src/scripts/frrzyriq/presslink.user.js
 // @license      MIT
 // ==/UserScript==
 

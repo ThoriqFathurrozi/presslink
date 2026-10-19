@@ -45,7 +45,7 @@ class ExampleAdapter extends BaseAdapter {
     getLauncherOptions({ pageType }) {
         return {
             className:
-                `pressora-example-launcher pressora-example-launcher--${pageType}`,
+                `presslink-example-launcher presslink-example-launcher--${pageType}`,
             style: {
                 background: '#2563eb',
                 borderRadius: pageType === 'page' ? '10px' : '6px'

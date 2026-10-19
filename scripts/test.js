@@ -33,7 +33,7 @@ async function run() {
     );
     if (testFiles.length === 0) throw new Error('No *.test.js files found under tests/');
 
-    const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'pressora-tests-'));
+    const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'presslink-tests-'));
     try {
         await esbuild.build({
             entryPoints: testFiles,

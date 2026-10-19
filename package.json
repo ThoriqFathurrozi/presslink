@@ -1,5 +1,5 @@
 {
-  "name": "pressora",
+  "name": "presslink",
   "version": "0.1.0",
   "private": true,
   "description": "Reusable userscript page adapter framework.",

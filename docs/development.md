@@ -29,7 +29,7 @@ Stop with Ctrl+C. After a rebuild, replace the installed userscript with the gen
 | Option | Value |
 | --- | --- |
 | Entry point | `src/main.js` |
-| Output | `dist/page-breakdown.user.js` |
+| Output | `presslink.user.js` (project root) |
 | Platform / format | Browser / IIFE |
 | Target | ES2020 |
 | Minification | Disabled |
@@ -37,7 +37,7 @@ Stop with Ctrl+C. After a rebuild, replace the installed userscript with the gen
 | Legal comments | Removed from bundled modules; userscript metadata is supplied as a banner |
 | Source maps | Not configured for the browser bundle |
 
-The build creates `dist/` if needed and removes the legacy `dist/pressora.user.js` output if present. Do not treat that old filename as the install target. Edit source files and rebuild rather than editing generated code.
+The build writes the bundle to `presslink.user.js` in the project root, creating the output directory if needed. Edit source files and rebuild rather than editing generated code.
 
 Metadata is read once before the esbuild watch context starts. Restart `npm run dev` after modifying the template. The ES2020 target is a bundle syntax target, not a guarantee that every DOM API works in every browser.
 
@@ -49,7 +49,7 @@ Edit [`src/config/constants.js`](../src/config/constants.js), rebuild, and reins
 | --- | --- | --- |
 | `CONFIG.debug` | `false` | Enables debug console messages; warnings/errors are always emitted |
 | `CONFIG.scanDelay` | `150` | Delay in milliseconds for scheduled scans; startup scan is immediate |
-| `CONFIG.launcherLabel` | `'Pressora'` | Default launcher text; adapters can override it |
+| `CONFIG.launcherLabel` | `'Presslink'` | Default launcher text; adapters can override it |
 | `CONFIG.popup.closeOnOutside` | `true` | Set to `false` to disable outside-click dismissal |
 
 `CONFIG` and its nested popup configuration are frozen. Change their source declarations rather than trying to mutate the exported objects at runtime. There are no environment variables or persistent settings to configure.
@@ -102,8 +102,8 @@ Override `getLauncherOptions(context)` on an adapter. The supported keys are `la
 ```js
 getLauncherOptions({ pageType }) {
     return {
-        label: 'Pressora',
-        className: `pressora-custom-launcher--${pageType}`,
+        label: 'Presslink',
+        className: `presslink-custom-launcher--${pageType}`,
         style: {
             name: pageType,
             right: '12px',
@@ -140,7 +140,7 @@ npm test -- tests/ui --test-name-pattern=Escape
 
 [`scripts/test.js`](../scripts/test.js) recursively discovers sorted `*.test.js` files below `tests/`. Each file or directory selection must contain a discovered test. With no selections, it runs all tests. Node test flags are forwarded; use `--flag=value` for options with values because separate value arguments are interpreted as file selections.
 
-The runner bundles selected tests into CommonJS files in a temporary `pressora-tests-*` directory using esbuild, embeds source maps, then invokes the current Node executable with `--enable-source-maps --test`. It forwards the test exit status and removes temporary files in a `finally` block.
+The runner bundles selected tests into CommonJS files in a temporary `presslink-tests-*` directory using esbuild, embeds source maps, then invokes the current Node executable with `--enable-source-maps --test`. It forwards the test exit status and removes temporary files in a `finally` block.
 
 | Area | Coverage |
 | --- | --- |
@@ -201,6 +201,6 @@ After changes affecting publishers or interaction, install the rebuilt bundle an
 2. Update the root userscript `@version`. Review the package version separately: the build does not synchronize `1.2` in metadata with `0.1.0` in `package.json`.
 3. Review `@match`, `@namespace`, homepage, update, and download metadata, especially for forks.
 4. Run `npm test` and `npm run build`, then complete the relevant manual browser checks.
-5. Confirm the generated file begins with the expected metadata and contains the application bundle. Distribute `dist/page-breakdown.user.js`.
+5. Confirm the generated file begins with the expected metadata and contains the application bundle. Distribute `presslink.user.js`.
 
 This repository has no publish command; building does not upload to OpenUserJS or any other service. The metadata declares MIT, but a standalone license file is absent from this checkout.

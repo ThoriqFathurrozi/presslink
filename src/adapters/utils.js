@@ -55,7 +55,7 @@ export function getRelativePageMount(pageSelector, headingSelector) {
 
 export function createSiteLauncherOptions(siteName, pageType, style = pageType) {
     return {
-        className: `pressora-${siteName}-launcher pressora-${siteName}-launcher--${pageType}`,
+        className: `presslink-${siteName}-launcher presslink-${siteName}-launcher--${pageType}`,
         style
     };
 }

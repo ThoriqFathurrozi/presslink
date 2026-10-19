@@ -1,14 +1,14 @@
-# Pressora
+# Presslink
 
-Pressora is a browser userscript that adds an article action menu to supported publishing sites. Use it to copy an article URL, open the original article in a new tab, or send its URL to an external reader. It handles article cards, article detail pages, dynamically inserted content, and History API navigation.
+Presslink is a browser userscript that adds an article action menu to supported publishing sites. Use it to copy an article URL, open the original article in a new tab, or send its URL to an external reader. It handles article cards, article detail pages, dynamically inserted content, and History API navigation.
 
 The implementation uses plain JavaScript, browser DOM APIs, and site adapters. esbuild packages the source into one installable userscript; there is no application server or runtime package dependency.
 
 ## Quick start
 
 1. Install and enable a userscript manager browser extension, such as **Violentmonkey**, **Tampermonkey**, or another userscript manager.
-2. Open the Pressora listing on [OpenUserJS](https://openuserjs.org/scripts/frrzyriq/pressora), or [search for Pressora on Greasy Fork](https://greasyfork.org/en/scripts?q=Pressora). On the script's page, click **Install** (OpenUserJS) or **Install this script** (Greasy Fork), then confirm the installation in your userscript manager.
-3. Reload a supported site and look for a **Pressora** button on an eligible card or article page.
+2. Open the Presslink listing on [OpenUserJS](https://openuserjs.org/scripts/frrzyriq/presslink), or [search for Presslink on Greasy Fork](https://greasyfork.org/en/scripts?q=Presslink). On the script's page, click **Install** (OpenUserJS) or **Install this script** (Greasy Fork), then confirm the installation in your userscript manager.
+3. Reload a supported site and look for a **Presslink** button on an eligible card or article page.
 
 **Build and install locally (optional)**
 
@@ -21,9 +21,9 @@ npm ci
 npm run build
 ```
 
-In your userscript manager, create a new script, replace its contents with the complete contents of [`pressora.user.js`](pressora.user.js), save, and enable it. Reload a supported site and look for a **Pressora** button on an eligible card or article page.
+In your userscript manager, create a new script, replace its contents with the complete contents of [`presslink.user.js`](presslink.user.js), save, and enable it. Reload a supported site and look for a **Presslink** button on an eligible card or article page.
 
-Install the generated [`pressora.user.js`](pressora.user.js). [`pressora-meta.user.js`](pressora-meta.user.js) is only the metadata template and does not contain the application.
+Install the generated [`presslink.user.js`](presslink.user.js). [`presslink-meta.user.js`](presslink-meta.user.js) is only the metadata template and does not contain the application.
 
 ## Supported sites
 
@@ -47,7 +47,7 @@ The Economist adapter is an unregistered draft. The example adapter is a develop
 | Open URL  | Opens the selected article URL in a new tab                                 |
 | Open FREE | Opens `https://freedium-mirror.cfd/` followed by the selected article URL   |
 
-“Open FREE” uses the same destination for every supported site. It is an external link action; Pressora does not fetch article content or guarantee the external service can read a given article. URL fragments are removed by the active adapters, while query parameters are preserved.
+“Open FREE” uses the same destination for every supported site. It is an external link action; Presslink does not fetch article content or guarantee the external service can read a given article. URL fragments are removed by the active adapters, while query parameters are preserved.
 
 ## Documentation
 

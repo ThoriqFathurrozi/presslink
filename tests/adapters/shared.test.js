@@ -27,7 +27,7 @@ for (const { adapter, domain, zIndex } of siteCases) {
     test(`${adapter.name}: launcher options preserve classes, placement styles, and stacking order`, () => {
         for (const pageType of ['card', 'page']) {
             assert.deepEqual(adapter.getLauncherOptions({ pageType }), {
-                className: `pressora-${adapter.name}-launcher pressora-${adapter.name}-launcher--${pageType}`,
+                className: `presslink-${adapter.name}-launcher presslink-${adapter.name}-launcher--${pageType}`,
                 style: zIndex === undefined ? pageType : { name: pageType, zIndex }
             });
         }

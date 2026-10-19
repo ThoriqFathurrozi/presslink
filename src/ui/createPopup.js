@@ -21,7 +21,7 @@ export function createPopup({
     popup.id = id;
     popup.dataset.pageBreakdownPopup = 'true';
     popup.setAttribute('role', 'menu');
-    popup.setAttribute('aria-label', 'Pressora actions');
+    popup.setAttribute('aria-label', 'Presslink actions');
 
     Object.assign(popup.style, {
         background: '#ffffff',

@@ -5,7 +5,7 @@
 ## Source map
 
 ```text
-pressora.user.js                 Userscript metadata template
+presslink-meta.user.js           Userscript metadata template
 src/
   main.js                       Bootstrap and engine instance replacement
   config/constants.js           Defaults, DOM markers, window/event keys
@@ -33,7 +33,7 @@ src/
 scripts/build.js                esbuild browser bundle and watch mode
 scripts/test.js                 Test discovery, bundling, and Node test runner
 tests/                          Adapter, core, and UI fixture tests
-dist/page-breakdown.user.js      Generated installable bundle
+presslink.user.js                Generated installable bundle
 ```
 
 The browser bundle is an unminified ES2020-targeted IIFE. Source modules use ES module syntax, while build/test scripts use CommonJS. There is no framework, stylesheet pipeline, application backend, or production npm runtime dependency.
@@ -64,7 +64,7 @@ Every scan captures a generation number. UI resets increment this number, and ch
 
 ## DOM and navigation observation
 
-`DomObserver` watches `document.documentElement` (or `document`) for subtree child additions/removals and attributes named `href` or `aria-label`. It does not observe character data, arbitrary attributes, or shadow roots. Pressora's own DOM insertions can schedule a later scan, but its dataset markers are not in the attribute filter.
+`DomObserver` watches `document.documentElement` (or `document`) for subtree child additions/removals and attributes named `href` or `aria-label`. It does not observe character data, arbitrary attributes, or shadow roots. Presslink's own DOM insertions can schedule a later scan, but its dataset markers are not in the attribute filter.
 
 `NavigationObserver` wraps `history.pushState` and `history.replaceState` once, guarded by `window.__PAGE_BREAKDOWN_HISTORY_PATCHED__`. Each wrapper calls the original method, then dispatches `userscript:navigation` with `{ url: window.location.href }`. A `popstate` event also dispatches that custom event.
 
@@ -117,4 +117,4 @@ engine?.scheduleScan(); // Request a delayed rescan.
 | `data-page-breakdown-action` | Action key on a menu item |
 | `[PageBreakdown]` | Logger prefix; debug output is controlled by `CONFIG.debug` |
 
-These names retain the internal PageBreakdown terminology even though the visible product is Pressora.
+These names retain the internal PageBreakdown terminology even though the visible product is Presslink.

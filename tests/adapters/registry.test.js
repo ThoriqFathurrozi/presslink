@@ -8,7 +8,7 @@ beforeEach(setupDom);
 afterEach(cleanupDom);
 
 test('every metadata match resolves an implemented adapter', async () => {
-    const metadata = readFileSync('pressora.user.js', 'utf8');
+    const metadata = readFileSync('presslink.user.js', 'utf8');
     const matches = [...metadata.matchAll(/@match\s+(https:\/\/[^/]+)\//g)];
     assert.ok(matches.length > 0);
     for (const [, origin] of matches) {

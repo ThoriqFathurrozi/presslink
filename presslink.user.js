@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Pressora
+// @name         Presslink
 // @namespace    https://github.com/ThoriqFathurrozi/
 // @version      1.2
 // @description  Improves the reading experience on supported news and publishing sites.
@@ -13,9 +13,9 @@
 // @grant        none
 // @run-at       document-end
 // @noframes
-// @homepageURL  https://github.com/ThoriqFathurrozi/pressora
-// @updateURL    https://openuserjs.org/meta/frrzyriq/pressora.meta.js
-// @downloadURL  https://openuserjs.org/src/scripts/frrzyriq/pressora.user.js
+// @homepageURL  https://github.com/ThoriqFathurrozi/presslink
+// @updateURL    https://openuserjs.org/meta/frrzyriq/presslink.meta.js
+// @downloadURL  https://openuserjs.org/src/scripts/frrzyriq/presslink.user.js
 // @license      MIT
 // ==/UserScript==
 
@@ -107,7 +107,7 @@
   var CONFIG = Object.freeze({
     debug: false,
     scanDelay: 150,
-    launcherLabel: "Pressora",
+    launcherLabel: "Presslink",
     popup: Object.freeze({
       closeOnOutside: true
     })
@@ -279,7 +279,7 @@
   }
   function createSiteLauncherOptions(siteName, pageType, style = pageType) {
     return {
-      className: `pressora-${siteName}-launcher pressora-${siteName}-launcher--${pageType}`,
+      className: `presslink-${siteName}-launcher presslink-${siteName}-launcher--${pageType}`,
       style
     };
   }
@@ -1095,7 +1095,7 @@
     popup.id = id;
     popup.dataset.pageBreakdownPopup = "true";
     popup.setAttribute("role", "menu");
-    popup.setAttribute("aria-label", "Pressora actions");
+    popup.setAttribute("aria-label", "Presslink actions");
     Object.assign(popup.style, {
       background: "#ffffff",
       border: "1px solid rgba(17, 24, 39, 0.12)",

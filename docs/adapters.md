@@ -143,7 +143,7 @@ The default engine URL fallback resolves relative URLs but does not restrict sch
 1. Inspect real index and article pages and identify stable selectors, article URL patterns, recommendation cards, and mount points.
 2. Create `src/adapters/<site>.js`, extending `BaseAdapter` and exporting one instance. Use `example.js` for the structure and a registered adapter for production behavior.
 3. Import and add the instance to `ADAPTERS` in `registry.js`. Check ordering if metadata-based matching overlaps another adapter.
-4. Add narrowly scoped HTTPS `@match` entries to the root `pressora.user.js` metadata template. Restart any build watcher.
+4. Add narrowly scoped HTTPS `@match` entries to the root `presslink-meta.user.js` metadata template. Restart any build watcher.
 5. Add fixtures and tests for matching, URL selection, article identity, eligibility, and placement. Verify that the metadata registry test resolves the new domain.
 6. Build and install the bundle. Check a real index, article, recommendations, infinite scroll, and in-page navigation, plus keyboard controls. See the [manual checklist](development.md#manual-browser-checks).
 7. Update the supported-site list and this reference with verified rules and remaining limitations.

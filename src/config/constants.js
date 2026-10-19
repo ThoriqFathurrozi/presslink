@@ -1,7 +1,7 @@
 export const CONFIG = Object.freeze({
     debug: false,
     scanDelay: 150,
-    launcherLabel: 'Pressora',
+    launcherLabel: 'Presslink',
     popup: Object.freeze({
         closeOnOutside: true
     })

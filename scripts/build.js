@@ -3,10 +3,10 @@ const path = require('node:path');
 const esbuild = require('esbuild');
 
 const projectRoot = path.resolve(__dirname, '..');
-const metadataPath = path.join(projectRoot, 'pressora-meta.user.js');
+const metadataPath = path.join(projectRoot, 'presslink-meta.user.js');
 const outputPath = path.join(
     projectRoot,
-    'pressora.user.js'
+    'presslink.user.js'
 );
 
 async function readMetadata() {

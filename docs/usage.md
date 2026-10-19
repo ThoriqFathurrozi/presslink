@@ -5,7 +5,7 @@
 ## Installation
 
 1. Install and enable a userscript manager browser extension, such as **Violentmonkey** or **Tampermonkey**, with permission to run on the supported site.
-2. Open the Pressora listing on [OpenUserJS](https://openuserjs.org/scripts/frrzyriq/pressora), or [search for Pressora on Greasy Fork](https://greasyfork.org/en/scripts?q=Pressora).
+2. Open the Presslink listing on [OpenUserJS](https://openuserjs.org/scripts/frrzyriq/presslink), or [search for Presslink on Greasy Fork](https://greasyfork.org/en/scripts?q=Presslink).
 3. Click **Install** (OpenUserJS) or **Install this script** (Greasy Fork) on the script's page, then confirm the installation in your userscript manager.
 4. Reload a supported HTTPS page. A button appears only when the adapter finds an eligible article and a place to insert it.
 
@@ -13,17 +13,17 @@
 
 1. Have a userscript manager installed and enabled in your browser, with permission to run on the supported site.
 2. In a terminal at the project root, run `npm ci` and then `npm run build`.
-3. Open `pressora.user.js` in a text editor. Copy the entire file, including its userscript metadata block.
+3. Open `presslink.user.js` in a text editor. Copy the entire file, including its userscript metadata block.
 4. Create a new script in the userscript manager, replace its contents with the copied file, and save it. Enable the script.
 5. Reload a supported HTTPS page. A button appears only when the adapter finds an eligible article and a place to insert it.
 
 If the manager supports importing a local userscript file, importing the generated file is another option. Browser and manager installation interfaces vary; this project does not contain a tested compatibility matrix.
 
-Node.js is needed for building and testing, not for running the installed userscript. Keep one enabled copy of Pressora to avoid conflicting versions.
+Node.js is needed for building and testing, not for running the installed userscript. Keep one enabled copy of Presslink to avoid conflicting versions.
 
 ## Using the menu
 
-Click **Pressora** to open the action menu. Card buttons act on the article linked from that card. A page button acts on the current page URL. The default card button is green; the page button is dark. Placement is controlled by the publisher adapter and can differ between layouts.
+Click **Presslink** to open the action menu. Card buttons act on the article linked from that card. A page button acts on the current page URL. The default card button is green; the page button is dark. Placement is controlled by the publisher adapter and can differ between layouts.
 
 Only one menu is open at a time. Clicking the same launcher again closes it; clicking another launcher switches menus. Successful actions close the menu. A failed action is logged to the browser console and generally leaves the menu open; there is no success toast or error dialog.
 
@@ -33,7 +33,7 @@ Only one menu is open at a time. Clicking the same launcher again closes it; cli
 | Open URL | Calls `window.open` with `_blank` and `noopener,noreferrer`. |
 | Open FREE | Uses the same new-tab mechanism with `https://freedium-mirror.cfd/` prepended to the article URL. The external service's availability and supported content are outside this project. |
 
-The external destination is constructed by direct concatenation, without encoding the article URL as a query parameter. All registered adapters remove the fragment (`#...`) and preserve the query string (`?...`). Pressora does not retrieve a canonical URL from page metadata.
+The external destination is constructed by direct concatenation, without encoding the article URL as a query parameter. All registered adapters remove the fragment (`#...`) and preserve the query string (`?...`). Presslink does not retrieve a canonical URL from page metadata.
 
 ## Keyboard and focus
 
@@ -52,7 +52,7 @@ An action button is disabled while its execution is pending. The popup uses `rol
 
 ## Dynamic pages
 
-Pressora scans once at startup and schedules further scans when page children, link destinations, or `aria-label` attributes change. The default scan delay is 150 milliseconds. It also resets its UI after `pushState`, `replaceState`, and browser back/forward navigation.
+Presslink scans once at startup and schedules further scans when page children, link destinations, or `aria-label` attributes change. The default scan delay is 150 milliseconds. It also resets its UI after `pushState`, `replaceState`, and browser back/forward navigation.
 
 This lets buttons follow infinite-scroll feeds and many single-page navigation flows. Arbitrary visual changes are not all observed: a change only to a CSS class or text node does not itself trigger a scan. A direct hash change has no dedicated navigation listener.
 
@@ -87,6 +87,6 @@ The source contains no analytics, persistent storage, or background article-fetc
 | Wrong or stale article URL | Check whether the publisher reused a card or changed its link markup. Capture the relevant card HTML and page URL for adapter investigation. |
 | Repeated or unexpected buttons | Ensure only one script version is enabled. Distinct card elements may intentionally have separate buttons even when they link to the same article. |
 
-To investigate, set `CONFIG.debug` to `true`, rebuild, and reinstall. Filter the browser console for `[PageBreakdown]`; this is the internal logging name used by Pressora. Warnings and errors are logged even when debug is disabled.
+To investigate, set `CONFIG.debug` to `true`, rebuild, and reinstall. Filter the browser console for `[PageBreakdown]`; this is the internal logging name used by Presslink. Warnings and errors are logged even when debug is disabled.
 
 A useful bug report includes the publisher URL, browser and userscript manager versions, installed userscript version, reproduction steps, expected result, console messages, and a small relevant HTML sample. Remove personal information from copied URLs and markup.
